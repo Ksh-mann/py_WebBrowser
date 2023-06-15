@@ -6,6 +6,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QToolBar, QAction, QLineEdit
 from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtGui import QIcon
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -19,19 +20,19 @@ class MainWindow(QMainWindow):
         navbar = QToolBar()
         self.addToolBar(navbar)
 
-        back_btn = QAction('Back', self)
+        back_btn = QAction(QIcon('Icons/angle-left.svg'),'Back', self)
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
 
-        forward_btn = QAction('Forward', self)
+        forward_btn = QAction(QIcon('Icons/angle-right.svg'), 'Forward', self)
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
-        reload_btn = QAction('Reload', self)
+        reload_btn = QAction(QIcon('./Icons/aload.svg'), 'Reload', self)
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
-        home_btn = QAction('Home', self)
+        home_btn = QAction(QIcon('./Icons/home.svg'), 'Home', self)
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
